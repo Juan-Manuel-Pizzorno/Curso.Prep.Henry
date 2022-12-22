@@ -85,12 +85,19 @@ function dePalabrasAFrase(palabras) {
   // con espacios entre cada palabra
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
-  let largoArray=array.length;
+  let largoArray=palabras.length;
   let texto="";
+  let largoTexto=0;
 
   for(let i=0;i<largoArray;i++){
-    texto+=array[i]+" ";
+    texto+=palabras[i];
+    if(largoArray!=i+1){
+      texto+=" ";
+      
+    }
   }
+  
+
   return texto;
 }
 
@@ -171,14 +178,18 @@ function numeroMasGrande(numeros) {
 
 function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
-  // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
-  // Escribe tu código aquí:
- // let arguments=0;
-
- // return arguments;
+  // Si no se pasan argumentos devuelve 0
+  // Si se pasa un argumento, simplemente devuélvelo
+  // Tu código:
+  if(arguments.length < 1) return 0;
+  var total = 1;
+  for(var i = 0; i < arguments.length; i++) {
+    total = total * arguments[i];
+  }
+  return total;
 }
 
-console.log(multiplicarArgumentos());
+
 
 
 function cuentoElementos(arreglo){
@@ -204,7 +215,7 @@ function diaDeLaSemana(numeroDeDia) {
   //Realiza una función que dado el número del día de la semana, retorne: Es fin de semana
   //si el día corresponde a Sábado o Domingo y “Es dia Laboral” en caso contrario. 
   //Escribe tu código aquí   
-  let díaDeSemana="Es día laboral";
+  let díaDeSemana="Es dia Laboral";
 
   if(numeroDeDia==1 || numeroDeDia==7){
     díaDeSemana="Es fin de semana";
@@ -308,20 +319,29 @@ function breakStatement(numero) {
   //devolver: "Se interrumpió la ejecución"
   //Pista: usá el statement 'break'
   // Tu código:
-  let i=0;
   let nuevoArray=[];
+  let suma=numero;
+  let conta=0;
+  let j=0;
 
-  while(i<10){
-     nuevoArray[i]=numero[i]+2;
-     if(nuevoArray[i]==i){
+  for(let i=0;i<10;i++){
+  
+    if(i!==suma){
+      suma+=+2;
+      nuevoArray[j]=suma;
+      j++;
+    }
+    else{
+      conta++;
       break;
-     }
-     i++;
+    }
+
   }
-  return nuevoArray[i]==i?"Se interrumpió la ejecución":nuevoArray;
+  return conta==1?"Se interrumpió la ejecución":nuevoArray;
 }
 
 //console.log(breakStatement(arrayEnteros));
+
 
 
 function continueStatement(numero) {
@@ -331,19 +351,19 @@ function continueStatement(numero) {
   //Cuando el número de iteraciones alcance el valor 5, no se suma en ese caso y se continua con la siguiente iteración
   //Pista: usá el statement 'continue'
   // Tu código:
-  let i=0;
-  let j=0;
   let nuevoArray=[];
+  let suma=numero;
+  let j=0;
 
-  while(i<10){
-    if(i!==4){
-    nuevoArray[j]=numero[i]+2;
-    j++;
+  for(let i=0;i<10;i++){
+  
+    if(i!==5){
+      suma+=+2;
+      nuevoArray[j]=suma;
+      j++;
     }
-    
-    i++;
-  }
 
+  }
   return nuevoArray;
 }
 
