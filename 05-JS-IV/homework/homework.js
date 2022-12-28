@@ -6,12 +6,13 @@ function crearGato (nombre, edad) {
   // Tu código:
   const user={
     nombre:nombre,
-    edad:edad,
+    
     meow: function(){
       return "Meow!";
     }
 
   };
+  user.edad=edad;
   return user;
 }
 
